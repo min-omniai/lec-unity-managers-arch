@@ -11,6 +11,13 @@ public abstract class UI_Base : MonoBehaviour
 
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
+        // 같은 타입을 두 번 Bind하면 Dictionary.Add에서 예외가 나므로 막는다
+        if (_objects.ContainsKey(typeof(T)))
+        {
+            Debug.LogWarning($"Already bound : {typeof(T).Name}");
+            return;
+        }
+
         string[] names = Enum.GetNames(type);
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);

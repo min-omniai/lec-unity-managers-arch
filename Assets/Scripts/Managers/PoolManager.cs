@@ -45,7 +45,7 @@ public class PoolManager : ISubManager
 
         public Poolable Pop(Transform parent)
         {
-            Poolable poolable = _poolStack.Count > 0 ? poolable = _poolStack.Pop() : poolable = Create();
+            Poolable poolable = _poolStack.Count > 0 ? _poolStack.Pop() : Create();
             poolable.transform.SetParent(parent);
             poolable.gameObject.SetActive(true);
             poolable.OnPopFromPool();
