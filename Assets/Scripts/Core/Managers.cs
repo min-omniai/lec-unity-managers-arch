@@ -33,6 +33,7 @@ public class Managers : MonoBehaviour
     {
         if (_instance != null) return;
 
+        // @Managers는 씬에 배치하지 않는다. GameScene(BaseScene.Awake)의 첫 접근에서 코드로 생성된다
         GameObject go = GameObject.Find("@Managers");
         if (go == null)
         {

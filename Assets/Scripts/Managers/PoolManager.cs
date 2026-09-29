@@ -62,6 +62,7 @@ public class PoolManager : ISubManager
         _root = new GameObject { name = "@PoolRoot" }.transform;
         Object.DontDestroyOnLoad(_root);
 
+        // 테스트 프리팹 풀 미리 생성 (Resources/Characters)
         CreatePool(Resources.Load<GameObject>("Characters/Cube"));
         CreatePool(Resources.Load<GameObject>("Characters/Sphere"));
         CreatePool(Resources.Load<GameObject>("Characters/Capsule"));

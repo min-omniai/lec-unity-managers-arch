@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// 초기화·정리할 상태가 없어 ISubManager(Init·Clear)를 구현하지 않는다
 public class ResourceManager
 {
     public T Load<T>(string path) where T : Object
