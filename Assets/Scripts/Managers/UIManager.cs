@@ -87,10 +87,10 @@ public class UIManager : ISubManager
         if (_popupStack.Count == 0)
             return;
 
+        // 맨 위 팝업만 닫는다. 중간 팝업을 Destroy하면 스택에 파괴된 참조가 남는다
         if (_popupStack.Peek() != popup)
         {
-            Managers.Resource.Destroy(popup.gameObject);
-            _order--;
+            Debug.Log("Close Popup Failed!");
             return;
         }
 
